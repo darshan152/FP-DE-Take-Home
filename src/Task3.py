@@ -1,7 +1,19 @@
 from google.cloud import bigquery
+import yaml
+
+## Import config data
+try:
+    print("Obtaining config data")
+    with open('../config.yaml', "r") as f:
+        config = yaml.safe_load(f)
+
+    project_name = config['BIGQUERY']['PROJECT']
+    dataset = config['BIGQUERY']['DATASET']
+except:
+     raise Exception("config.yaml failed to load")
 
 # Connecting to the correct project in BQ
-client = bigquery.Client(project='de-take-home')
+client = bigquery.Client(project=project_name)
 
 # Setting the coordinates
 distress_latitude = 32.610982
@@ -17,7 +29,7 @@ LIMIT 1
 """)
 
 # Create a BigQuery table with the query result
-table_id = "de-take-home.task_answers.nearest_provision_ports"
+table_id = f"{project_name}.{dataset}.nearest_provision_ports"
 job_config = bigquery.QueryJobConfig(destination=table_id, write_disposition="WRITE_TRUNCATE")
 query_job = client.query(query_for_nearest_ports, job_config=job_config)
 print("Processing query")

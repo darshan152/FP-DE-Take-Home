@@ -19,9 +19,12 @@ To use this code, you will need:
 
 * A Google Cloud Platform account with a project that has access to the geo_international_ports dataset in BigQuery.
 * Python 3.7 or later installed on your machine.
-* The google-cloud-bigquery Python package installed.
+* Install packages in requirements.txt using: `pip install -r requirements.txt`
     * It is reccomened to set up a python virtual environment as shown [here](https://cloud.google.com/python/docs/reference/bigquery/latest)
-* A dataset named 'task_answers' created in the project named 'de-take-home'.
+* Specify names of project and dataset in the `config.yaml` file
+    * A project can be created following the instructions [here](https://cloud.google.com/python/docs/reference/bigquery/latest)
+    * The python script in `src/CreateDataset.py` helps to create the dataset specified in the config file
+
 
 ## Usage
 To create the BigQuery tables for each question, run the following commands:
