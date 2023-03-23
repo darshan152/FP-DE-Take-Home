@@ -9,8 +9,8 @@ This repository contains code to create BigQuery tables that analyze data from t
 Additionally, the following questions will be answered as well:
 
 4. In your own words (short paragraphs conveying your thoughts), answer the following questions:
-a. What is refactoring? When and why should you refactor?
-b. What is testing? When and why should you write test cases?
+    * What is refactoring? When and why should you refactor?
+    * What is testing? When and why should you write test cases?
 5. Have a browse of [FastAPI](https://github.com/tiangolo/fastapi) and write down how this repository is structured
 and why. What improvements do you think can be made?
 
